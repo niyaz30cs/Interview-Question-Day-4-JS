@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Day-4</title>
+</head>
+<body>
+    <p>**DAY-4**</p>
+    <h2 class="question">Q-1.Write a code to implement timer clock using JS-display 
+        HH:MM:SS-the timer should keep updating every second?
+    </h2>
+    <div class="clock" id="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div id="AMPM"></div>
+    </div>
+    <pre>
+        setInterval(clock,1000);
+function clock(){
+    let time=new Date();
+    let hour=time.getHours();
+    let minute=time.getMinutes();
+    let second=time.getSeconds();
+    let AMPM="AM";
+
+    let digital=document.getElementById("clock");
+      
+    // hour=hour<10? `0${hour}`:hour;
+    // minute=minute<10? `0${minute}`:minute;
+    // second=second<10? `0${second}`:second;
+
+    //  digital.innerHTML=`${hour}:${minute}:${second}`;
+
+
+    if(hour>=12)
+    {
+        hour-=12;
+        AMPM="PM";
+    }
+    else
+    {
+        AMPM="AM";
+    }
+
+    if(hour<10)
+    {
+        hour="0"+hour;
+    }
+    if(minute<10)
+    {
+        minute="0"+minute;
+    }
+    if(second<10)
+    {
+        second="0"+second;
+    }
+
+        digital.innerHTML=" "+hour+":"+" "+minute+":"+" "+second+" "+AMPM;
+
+}
+    </pre>
+ 
+    
+    <h2 class="question">Q-2.Create an HTML page having content as hello world
+        and button named Replaced text When user will click on this button page
+        content should be changed to "Welcome to Elevation academy".
+    </h2>
+    <div class="add">
+       <div class="text" id="text">Hello World</div>
+       <div class="btn">
+       <button id="btn" onclick="change()">Replaced</button>
+       </div>
+    </div>
+    <pre>
+        function change(){
+            let text=document.getElementById("text");
+            text.innerText="Welcome to Elevation academy";
+            text.style.fontSize="40px";
+            text.style.color="green";
+            text.style.fontFamily="Arial, Helvetica, sans-serif";
+        }
+    </pre>
+    
+    <h2 class="question">Q-3.Create an HTML page having content as Hello World
+        and button named "Hide Text" When user will click on this button hide the
+        "Helllo World"Text.
+    </h2>
+    <div class="text2">
+        <div id="hello">Hello World</div>
+    </div>
+    <div class="btn">
+        <button id="btn" onclick="display()">Hide Text</button>
+    </div>
+    <pre>
+        function display(){
+            let text2=document.getElementById("hello");
+            text2.innerText="";
+        }
+    </pre>
+    <h2 class="question">Q-4.Write code to get 1st H1 element from a webpage
+        using DOM?
+    </h2>
+
+    <div class="container">
+        <h1> I AM H1-1...!! </h1>
+        <h1> I AM H1-2...!! </h1>
+        <h1> I AM H1-3...!! </h1>
+        <h1> I AM H1-4...!! </h1>
+        <h1> I AM H1-5...!! </h1>
+    </div>
+    <pre>
+        const h1=document.querySelectorAll("h1");
+              h1[0].style.color="cyan";
+              h1[3].style.backgroundColor="pink";
+              h1[3].style.fontFamily="Arial, Helvetica, sans-serif";
+              h1[3].style.fontSize="50px"; 
+    </pre>
+
+    <h2 class="question">Q-5.Create a bitton,on click of which new Heading tag h1 should be added
+        with text as "MERN stack" on the screen above button?
+    </h2>
+    <h1 class="box" id="show"></h1>
+    <div class="box">
+        <button id="box" onclick="show()">clickMe</button>
+    </div>
+    <pre>
+        function show(){
+            const show1=document.getElementById("show");
+            show1.innerText="MERN stack";
+            show1.style.fontFamily="Arial, Helvetica, sans-serif";
+        }
+    </pre>
+</body>
+<script src="./script.js"></script>
+</html>
